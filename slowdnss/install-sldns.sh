@@ -52,7 +52,7 @@ cp /root/dns/dnstt-server/server.key /etc/slowdns
 cp /root/dns/dnstt-server/server.pub /etc/slowdns
 #wget -q -O /etc/slowdns/server.key "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.key"
 #wget -q -O /etc/slowdns/server.pub "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.pub"
-wget -q -O /etc/slowdns/sldns-server "https://github.com/khairunisya/slowdns-client-server/raw/main/sldns-server"
+wget -q -O /etc/slowdns/sldns-server "https://github.com/khairunisya/multiws/slowdnss/raw/main/sldns-server"
 wget -q -O /etc/slowdns/sldns-client "https://github.com/khairunisya/slowdns-client-server/raw/main/sldns-client"
 cd
 #chmod +x /etc/slowdns/server.key
