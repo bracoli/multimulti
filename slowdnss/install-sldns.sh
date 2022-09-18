@@ -41,20 +41,19 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 cd /root
 apt install git -y
 git clone https://www.bamsoftware.com/git/dnstt.git temp
-mv /root/temp /root/slowdns
+mv /root/temp /root/.dns
 rm -rf temp
-cd /root/slowdns/dnstt-server
+cd /root/.dns/dnstt-server
 go build
 ./dnstt-server -gen-key -privkey-file /root/.dns/server.key -pubkey-file /root/.dns/server.pub
 mkdir -m 777 /etc/slowdns
 cp /root/.dns/server.key /etc/slowdns
 cp /root/.dns/server.pub /etc/slowdns
-rm -rf slowdns
-
+rm -rf /etc/slowdns
 #wget -q -O /etc/slowdns/server.key "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.key"
 #wget -q -O /etc/slowdns/server.pub "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.pub"
-wget -q -O /etc/slowdns/sldns-server "https://github.com/khairunisya/multiws/slowdnss/raw/main/sldns-server"
-wget -q -O /etc/slowdns/sldns-client "https://github.com/khairunisya/multiws/slowdnss/raw/main/sldns-client"
+wget -q -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sldns-server"
+wget -q -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sldns-client"
 cd
 #chmod +x /etc/slowdns/server.key
 #chmod +x /etc/slowdns/server.pub
