@@ -50,8 +50,7 @@ mv /root/slowdns/dnstt-server/server.key /root/.dns
 mv /root/slowdns/dnstt-server/server.pub /root/.dns
 rm -rf /etc/slowdns
 mkdir -m 777 /etc/slowdns
-cp /root/.dns/server.key /etc/slowdns
-cp /root/.dns/server.pub /etc/slowdns
+
 cd /root
 rm -rf slowdns
 
@@ -77,7 +76,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/etc/slowdns/sldns-client -udp 8.8.8.8:53 --pubkey-file /etc/slowdns/server.pub $nameserver 127.0.0.1:22
+ExecStart=/etc/slowdns/sldns-client -udp 8.8.8.8:53 --pubkey-file /root/.dns/server.pub $nameserver 127.0.0.1:22
 Restart=on-failure
 
 [Install]
@@ -97,7 +96,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/etc/slowdns/sldns-server -udp :5300 -privkey-file /etc/slowdns/server.key $nameserver 127.0.0.1:22
+ExecStart=/etc/slowdns/sldns-server -udp :5300 -privkey-file /root/.dns/server.key $nameserver 127.0.0.1:22
 Restart=on-failure
 
 [Install]
