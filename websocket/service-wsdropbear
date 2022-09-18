@@ -1,6 +1,6 @@
 [Unit]
 Description=Websocket-OpenSSH By SSH SEDANG
-Documentation=https://sshsedang.my.id
+Documentation=https://www.jrtunnel.com
 After=network.target nss-lookup.target
 
 [Service]

@@ -16,20 +16,20 @@ red='\e[1;31m'
 green='\e[0;32m'
 yell='\e[1;33m'
 NC='\e[0m'
-echo "Installing SSH Websocket by SSH SEDANG NETWORK" | lolcat
+echo "Installing SSH Websocket by SSH Jrtunnel NETWORK" | lolcat
 echo "Progress..." | lolcat
 sleep 3
 cd
 
-wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/websocket/dropbear-ws.py
-wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/websocket/ws-stunnel
+wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/dropbear-ws.py
+wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/ws-stunnel
 
 chmod +x /usr/local/bin/ws-dropbear
 chmod +x /usr/local/bin/ws-stunnel
 
-wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/websocket/service-wsdropbear && chmod +x /etc/systemd/system/ws-dropbear.service
+wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/service-wsdropbear && chmod +x /etc/systemd/system/ws-dropbear.service
 
-wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/websocket/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
+wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
 
 systemctl daemon-reload
 systemctl enable ws-dropbear.service

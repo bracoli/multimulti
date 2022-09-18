@@ -2,9 +2,7 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
-function import_string() {
-    export SCRIPT_URL='https://raw.githubusercontent.com/khairunisya/multiws/main/'
-}
+
 BURIQ () {
     curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
@@ -195,7 +193,7 @@ fi
 fi
 
 echo ""
-wget -q https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
+wget -q https://raw.githubusercontent.com/khairunisya/multiws/main/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
 rm dependencies.sh
 clear
 
@@ -249,24 +247,24 @@ EOF
 echo -e "$green[INFO]$NC Install SSH"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "$green[INFO]$NC Install Install XRAY!"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/khairunisya/multiws/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
-wget https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/khairunisya/multiws/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
-wget https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
-wget https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/websocket/nontls.sh && chmod +x nontls.sh && ./nontls.sh
+wget https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/nontls.sh && chmod +x nontls.sh && ./nontls.sh
 clear
-wget https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/slowdnss/install-sldns.sh && chmod +x install-sldns.sh && ./install-sldns.sh
+wget https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/install-sldns.sh && chmod +x install-sldns.sh && ./install-sldns.sh
 clear
 echo -e "$green[INFO]$NC Download Extra Menu"
 sleep 2
-wget https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/update/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/khairunisya/multiws/main/update/update.sh && chmod +x update.sh && ./update.sh
 clear
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 clear
@@ -295,7 +293,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/SSHSEDANG4/permission/main/version  )
+serverV=$( curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/version  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11

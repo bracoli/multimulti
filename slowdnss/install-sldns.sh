@@ -19,11 +19,11 @@ NC='\e[0m'
 echo "Installing SSH Slowdns" | lolcat
 echo "Progress..." | lolcat
 sleep 3
-wget https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/slowdnss/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
+wget https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
 nameserver=$(cat /root/nsdomain)
 
 # SSH SlowDNS
-wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/slowdnss/sshd_config
+wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sshd_config
 systemctl restart sshd
 
 apt install screen -y
@@ -35,24 +35,24 @@ service iptables reload
 
 rm -rf /etc/slowdns
 mkdir -m 777 /etc/slowdns
-wget -q -O /etc/slowdns/server.key "https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/slowdnss/server.key"
-wget -q -O /etc/slowdns/server.pub "https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/slowdnss/server.pub"
-wget -q -O /etc/slowdns/sldns-server "https://github.com/SSHSEDANG4/slowdns-client-server/raw/main/sldns-server"
-wget -q -O /etc/slowdns/sldns-client "https://github.com/SSHSEDANG4/slowdns-client-server/raw/main/sldns-client"
+wget -q -O /etc/slowdns/server.key "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.key"
+wget -q -O /etc/slowdns/server.pub "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.pub"
+wget -q -O /etc/slowdns/sldns-server "https://github.com/khairunisya/slowdns-client-server/raw/main/sldns-server"
+wget -q -O /etc/slowdns/sldns-client "https://github.com/khairunisya/slowdns-client-server/raw/main/sldns-client"
 cd
 chmod +x /etc/slowdns/server.key
 chmod +x /etc/slowdns/server.pub
 chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
 cd
-#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/slowdnss/client-sldns.service"
-#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/SSHSEDANG4/multiws/main/slowdnss/server-sldns.service"
+#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/client-sldns.service"
+#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server-sldns.service"
 cd
 #install client-sldns.service
 cat > /etc/systemd/system/client-sldns.service << END
 [Unit]
-Description=Client SlowDNS By SSHSEDANG
-Documentation=https://ssn.my.id
+Description=Client SlowDNS By Jrtunnel
+Documentation=https://www.jrtunnel.com
 After=network.target nss-lookup.target
 
 [Service]
@@ -71,8 +71,8 @@ cd
 #install server-sldns.service
 cat > /etc/systemd/system/server-sldns.service << END
 [Unit]
-Description=Server SlowDNS By SSHSEDANG
-Documentation=https://ssn.my.id
+Description=Server SlowDNS By Jrtunnel
+Documentation=https://www.jrtunnel.com
 After=network.target nss-lookup.target
 
 [Service]

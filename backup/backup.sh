@@ -10,7 +10,7 @@ COLBG1="$(cat /etc/ssnvpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ /
 ###########- END COLOR CODE -##########
 
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/SSHSEDANG4/permission/main/ipmini > /root/tmp
+    curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -28,7 +28,7 @@ BURIQ () {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/SSHSEDANG4/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -45,7 +45,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/SSHSEDANG4/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -72,10 +72,10 @@ fi
 IP=$(curl -sS ipv4.icanhazip.com);
 date=$(date +"%Y-%m-%d")
 
-itoken=$(curl -sS https://raw.githubusercontent.com/SSHSEDANG4/update/main/asu)
+itoken=$(curl -sS https://raw.githubusercontent.com/khairunisya/update/main/asu)
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-NameUser=$(curl -sS https://raw.githubusercontent.com/SSHSEDANG4/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+NameUser=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | grep $MYIP | awk '{print $2}')
 
 
 clear
@@ -111,7 +111,7 @@ zip -rP $InputPass $NameUser.zip backup > /dev/null 2>&1
 ##############++++++++++++++++++++++++#############
 LLatest=`date`
 Get_Data () {
-git clone https://github.com/SSHSEDANG4/backupuserssn.git /root/user-backup/ &> /dev/null
+git clone https://github.com/khairunisya/backupuserssn.git /root/user-backup/ &> /dev/null
 }
 
 Mkdir_Data () {
@@ -138,8 +138,8 @@ Save_And_Exit () {
     git add . &> /dev/null
     git commit -m backup &> /dev/null
     git branch -M main &> /dev/null
-    git remote add origin https://github.com/SSHSEDANG4/backupuserssn
-    git push -f https://$itoken@github.com/SSHSEDANG4/backupuserssn.git &> /dev/null
+    git remote add origin https://github.com/khairunisya/backupuserssn
+    git push -f https://$itoken@github.com/khairunisya/backupuserssn.git &> /dev/null
 }
 
 if [ ! -d "/root/user-backup/" ]; then
@@ -154,7 +154,7 @@ sleep 1
 echo -e "$COLOR1│${NC}  [INFO] Processing updating server...... "
 Save_And_Exit
 fi
-link="https://raw.githubusercontent.com/SSHSEDANG4/backupuserssn/main/$NameUser/$NameUser.zip"
+link="https://raw.githubusercontent.com/khairunisya/backupuserssn/main/$NameUser/$NameUser.zip"
 sleep 1
 echo -e "$COLOR1│${NC}  [INFO] Backup done "
 sleep 1
@@ -177,7 +177,7 @@ rm -rf /root/user-backup &> /dev/null
 rm -f /root/$NameUser.zip &> /dev/null
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}              • WWW.SSHSEDANG.MY.ID •                $COLOR1│$NC"
+echo -e "$COLOR1│${NC}              • WWW.JRTUNNEL.COM •                $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo
 read -n 1 -s -r -p "   Press any key to back on menu"
