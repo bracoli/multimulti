@@ -41,19 +41,20 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 cd /root
 apt install git -y
 git clone https://www.bamsoftware.com/git/dnstt.git temp
-mv /root/temp /root/dns
-rm temp
-cd /root/dns/dnstt-server
+mv /root/temp /root/slowdns
+rm -rf temp
+cd /root/slowdns/dnstt-server
 go build
-./dnstt-server -gen-key -privkey-file /root/dns/dnstt-server/server.key -pubkey-file /root/dns/dnstt-server/server.pub
-rm -rf /etc/slowdns
+./dnstt-server -gen-key -privkey-file /root/.dns/server.key -pubkey-file /root/.dns/server.pub
 mkdir -m 777 /etc/slowdns
-cp /root/dns/dnstt-server/server.key /etc/slowdns
-cp /root/dns/dnstt-server/server.pub /etc/slowdns
+cp /root/.dns/server.key /etc/slowdns
+cp /root/.dns/server.pub /etc/slowdns
+rm -rf slowdns
+
 #wget -q -O /etc/slowdns/server.key "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.key"
 #wget -q -O /etc/slowdns/server.pub "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.pub"
 wget -q -O /etc/slowdns/sldns-server "https://github.com/khairunisya/multiws/slowdnss/raw/main/sldns-server"
-wget -q -O /etc/slowdns/sldns-client "https://github.com/khairunisya/slowdns-client-server/raw/main/sldns-client"
+wget -q -O /etc/slowdns/sldns-client "https://github.com/khairunisya/multiws/slowdnss/raw/main/sldns-client"
 cd
 #chmod +x /etc/slowdns/server.key
 #chmod +x /etc/slowdns/server.pub
@@ -76,7 +77,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/etc/slowdns/sldns-client -udp 8.8.8.8:53 --pubkey-file /etc/slowdns/server.pub $nameserver 127.0.0.1:3369
+ExecStart=/etc/slowdns/sldns-client -udp 8.8.8.8:53 --pubkey-file /etc/slowdns/server.pub $nameserver 127.0.0.1:22
 Restart=on-failure
 
 [Install]
@@ -96,7 +97,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/etc/slowdns/sldns-server -udp :5300 -privkey-file /etc/slowdns/server.key $nameserver 127.0.0.1:2269
+ExecStart=/etc/slowdns/sldns-server -udp :5300 -privkey-file /etc/slowdns/server.key $nameserver 127.0.0.1:22
 Restart=on-failure
 
 [Install]
