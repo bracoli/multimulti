@@ -45,11 +45,11 @@ mv /root/temp /root/.dns
 rm -rf temp
 cd /root/.dns/dnstt-server
 go build
-./dnstt-server -gen-key -privkey-file /root/.dns/server.key -pubkey-file /root/.dns/server.pub
-mkdir -m 777 /etc/slowdns
-cp /root/.dns/server.key /etc/slowdns
-cp /root/.dns/server.pub /etc/slowdns
+./dnstt-server -gen-key -privkey-file /root/.dns/dnstt-server/server.key -pubkey-file /root/.dns/dnstt-server/server.pub
 rm -rf /etc/slowdns
+mkdir -m 777 /etc/slowdns
+cp /root/.dns/dnstt-server/server.key /etc/slowdns
+cp /root/.dns/dnstt-server/server.pub /etc/slowdns
 #wget -q -O /etc/slowdns/server.key "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.key"
 #wget -q -O /etc/slowdns/server.pub "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server.pub"
 wget -q -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sldns-server"
