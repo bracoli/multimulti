@@ -46,8 +46,9 @@ rm -rf temp
 cd /root/slowdns/dnstt-server
 go build
 ./dnstt-server -gen-key -privkey-file /root/slowdns/dnstt-server/server.key -pubkey-file /root/slowdns/dnstt-server/server.pub
-mv /root/slowdns/dnstt-server/server.key /root/.dns
-mv /root/slowdns/dnstt-server/server.pub /root/.dns
+mkdir -m 777 /root/.dns
+mv /root/slowdns/dnstt-server/server.key /root/.dns/server.key
+mv /root/slowdns/dnstt-server/server.pub /root/.dns/server.pub
 rm -rf /etc/slowdns
 mkdir -m 777 /etc/slowdns
 
