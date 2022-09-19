@@ -13,7 +13,7 @@ COLBG1="$(cat /etc/ssnvpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ /
 ipes=$(curl -sS ipv4.icanhazip.com)
 [[ ! -f /usr/bin/jq ]] && {
     red "Downloading jq file!"
-    wget -q --no-check-certificate "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64" -O /usr/bin/jq
+    wget -qc --no-check-certificate "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64" -O /usr/bin/jq
     chmod +x usr/bin/jq
 }
 
@@ -114,7 +114,7 @@ EOF
 fun_bot1() {
 clear
 [[ ! -e "/etc/.maAsiss/.Shellbtsss" ]] && {
-wget -qO- https://raw.githubusercontent.com/SSHSEDANG4/bot_panel/main/BotAPI.sh >/etc/.maAsiss/.Shellbtsss
+wget -qc O- https://raw.githubusercontent.com/SSHSEDANG4/bot_panel/main/BotAPI.sh >/etc/.maAsiss/.Shellbtsss
 }
 [[ "$(grep -wc "sam_bot" "/etc/rc.local")" = '0' ]] && {
 sed -i '$ i\screen -dmS sam_bot bbt' /etc/rc.local >/dev/null 2>&1

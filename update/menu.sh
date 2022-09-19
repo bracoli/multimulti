@@ -163,9 +163,10 @@ cekup=`uptime -p | grep -ow "day"`
 IPVPS=$(curl -s ipinfo.io/ip )
 serverV=$( curl -sS https://raw.githubusercontent.com/khairunisya/update/main/version_up)
 if [ "$Isadmin" = "ON" ]; then
-uis="${GREEN}Premium User$NC"
+uis="${GREEN}Full Admin$NC"
 else
-uis="${RED}Free Version$NC"
+uis="${GREEN}Premium User$NC"
+
 fi
 
 if [ "$cekup" = "day" ]; then

@@ -78,7 +78,7 @@ cat log-install.txt
 echo -e ""
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • WWW.SSHSEDANG.MY.ID •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • WWW.JRTUNNEL.COMD •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "  Press any key to back on menu"
