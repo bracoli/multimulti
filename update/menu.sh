@@ -163,13 +163,11 @@ cekup=`uptime -p | grep -ow "day"`
 IPVPS=$(curl -s ipinfo.io/ip )
 serverV=$( curl -sS https://raw.githubusercontent.com/khairunisya/update/main/version_up)
 if [ "$Isadmin" = "ON" ]; then
-uis="${GREEN}Full Admin$NC"
+uis="${GREEN}Admin$NC"
 else
 uis="${GREEN}Premium User$NC"
 fi
-
 if [ "$cekup" = "day" ]; then
-echo -e "$COLOR1│$NC User Roles  : $uis"
 echo -e "$COLOR1│$NC System Uptime  : $uphours $upminutes $uptimecek"
 else
 echo -e "$COLOR1│$NC System Uptime  : $uphours $upminutes"
@@ -179,7 +177,7 @@ echo -e "$COLOR1│$NC ISP & City     : $ISP & $CITY"
 echo -e "$COLOR1│$NC Current Domain : $(cat /etc/xray/domain)"
 echo -e "$COLOR1│$NC IP-VPS         : ${COLOR1}$IPVPS${NC}"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "            Status Service Running                   "
+echo -e "$COLOR1 $NC               Status Service Running       $NC"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} [ SSH WS : $status_ws ] [ XRAY : $status_xray ] [NGINX : $status_nginx ] $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
@@ -220,6 +218,7 @@ datediff() {
 mai="datediff "$Exp" "$DATE""
 
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐$NC"
+echo -e "$COLOR1│$NC User Roles  : $uis"
 echo -e "$COLOR1│$NC Version     :${COLOR1} $(cat /opt/.ver) Latest Version${NC}"
 echo -e "$COLOR1│$NC Client Name : $Name"
 if [ $exp \> 1000 ];
