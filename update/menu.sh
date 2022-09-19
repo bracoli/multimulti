@@ -166,7 +166,6 @@ if [ "$Isadmin" = "ON" ]; then
 uis="${GREEN}Full Admin$NC"
 else
 uis="${GREEN}Premium User$NC"
-
 fi
 
 if [ "$cekup" = "day" ]; then
