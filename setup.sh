@@ -168,7 +168,7 @@ exit 0
 elif [ "$res" = "Permission Accepted..." ]; then
 green "Permission Accepted!"
 else
-red "Permission Denied! Please Contact Admin t.me/jrtunnelssh"
+red " Permission Denied! Please Contact Admin t.me/jrtunnelssh "
 rm setup.sh > /dev/null 2>&1
 sleep 10
 exit 0
