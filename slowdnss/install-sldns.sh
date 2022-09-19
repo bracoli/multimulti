@@ -1,5 +1,5 @@
 #!/bin/bash
-# Slowdns Instalation
+# Slowdns Instalation by Jrtunnel 19-09-2022
 # ==========================================
 BURIQ () {
     curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini > /root/tmp
@@ -89,6 +89,7 @@ echo -e " [ ${green}INFO${NC} ] Successfully.. "
 wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sshd_config
 systemctl restart sshd
 sleep 1
+echo -e "[ ${green}INFO${NC} ] Tambahan... "
 apt install screen -y
 apt install cron -y
 apt install iptables -y

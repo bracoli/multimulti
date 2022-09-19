@@ -248,8 +248,29 @@ blue
 EOF
     
 #install ssh ovpn
+sleep 1
+echo -e "$yell[SERVICE]$NC SCRIPT JRTUNNEL.COM"
+sleep 1
+echo -e "[ ${green}ok${NC} ] Install SSH & VPN"
+sleep 1
+echo -e "[ ${green}ok${NC} ] Install Xray VMess "
+sleep 1
+echo -e "[ ${green}ok${NC} ] Install Xray Vless "
+sleep 1
+echo -e "[ ${green}ok${NC} ] Install SSH SSL WS "
+sleep 1
+echo -e "[ ${green}ok${NC} ] Install SSH NON SSL "
+sleep 1
+echo -e "[ ${green}ok${NC} ] Install SSH Slow DNS "
+sleep 1
+echo -e "[ ${green}ok${NC} ] Install Trojan Ws "
+sleep 1
+echo -e "[ ${green}ok${NC} ] Install All gRPC"
+sleep 1
+echo -e "[ ${green}ok${NC} ] Install Shadowsocks"
+sleep 1
 echo -e "$green[INFO]$NC Install SSH"
-sleep 2
+sleep 1
 clear
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
