@@ -3,12 +3,7 @@
 # ==================================================
 
 # initializing var
-export DEBIAN_FRONTEND=noninteractive
-MYIP=$(wget -qO- ipinfo.io/ip);
-MYIP2="s/xxxxxxxxx/$MYIP/g";
-NET=$(ip -o $ANU -4 route show to default | awk '{print $5}');
-source /etc/os-release
-ver=$VERSION_ID
+
 
 BURIQ () {
     curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini > /root/tmp
@@ -70,6 +65,13 @@ red "Permission Denied!"
 exit 0
 fi
 clear
+
+export DEBIAN_FRONTEND=noninteractive
+MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP2="s/xxxxxxxxx/$MYIP/g";
+NET=$(ip -o $ANU -4 route show to default | awk '{print $5}');
+source /etc/os-release
+ver=$VERSION_ID
 
 #detail nama perusahaan
 country=ID
