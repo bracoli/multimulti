@@ -24,7 +24,7 @@ nameserver=$(cat /root/nsdomain)
 echo -e "[ ${green}INFO${NC} ] Download File... "
 echo "Progress..." | lolcat
 # SSH SlowDNS
-wget -qcO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sshd_config
+wget -qc -O /etc/ssh/sshd_config https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sshd_config
 systemctl restart sshd
 sleep 1
 apt install screen -y
