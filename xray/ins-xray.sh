@@ -103,7 +103,7 @@ echo -e " [INFO] Successfully"
 sleep 1
 
 # install xray
-
+echo -e "[ ${green}INFO$NC ] Setting"
 domainSock_dir="/run/xray";! [ -d $domainSock_dir ] && mkdir  $domainSock_dir
 chown www-data.www-data $domainSock_dir
 # Make Folder XRay
@@ -150,7 +150,7 @@ chmod +x /usr/local/bin/ssl_renew.sh
 if ! grep -q 'ssl_renew.sh' /var/spool/cron/crontabs/root;then (crontab -l;echo "15 03 */3 * * /usr/local/bin/ssl_renew.sh") | crontab;fi
 
 mkdir -p /home/vps/public_html
-
+echo -e "[ ${green}INFO$NC ] Setting"
 # set uuid
 uuid=$(cat /proc/sys/kernel/random/uuid)
 # xray config

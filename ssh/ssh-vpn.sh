@@ -19,7 +19,25 @@ organizationalunit=Jrtunnel
 commonname=none
 email=admin@jrtunnel.com
 
-sleep 1
+red='\e[1;31m'
+green='\e[0;32m'
+yell='\e[1;33m'
+NC='\e[0m'
+echo "Progress..."
+sleep 3
+#green() { echo -e "\\033[32;1m${*}\\033[0m"; }
+#red() { echo -e "\\033[31;1m${*}\\033[0m"; }
+#PERMISSION
+#if [ "$res" = "Permission Accepted..." ]; then
+#green "Permission Accepted.."
+#else
+#red "Permission Denied!"
+#exit 0
+#fi
+#echo -e "
+#"
+date
+echo ""
 echo -e "[ ${green}INFO${NC} ] Installer SSH... "
 # simple password minimal
 curl -sS https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
@@ -53,7 +71,7 @@ cat > /etc/rc.local <<-END
 exit 0
 END
 
-
+echo -e "[ ${green}INFO$NC ] Update System"
 # Ubah izin akses
 chmod +x /etc/rc.local
 
@@ -65,6 +83,8 @@ systemctl start rc-local.service
 echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 
+echo -e "[ ${green}INFO$NC ] Update System"
+sleep 3
 #update
 apt update -y
 apt upgrade -y
@@ -92,6 +112,7 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 
+echo -e "[ ${green}INFO$NC ] Install SSL"
 
 install_ssl(){
     if [ -f "/usr/bin/apt-get" ];then
@@ -127,18 +148,18 @@ install_ssl(){
     fi
 }
 
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Installer Nginx... "
 # install webserver
 apt -y install nginx
 cd
-sleep 1
-echo -e "[ ${green}INFO${NC} ] Installer Nginx... "
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -qc -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/nginx.conf"
 rm /etc/nginx/conf.d/vps.conf
 wget -qc -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/vps.conf"
 /etc/init.d/nginx restart
-
+echo -e "[ ${green}INFO$NC ] Setting"
 mkdir /etc/systemd/system/nginx.service.d
 printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf
 rm /etc/nginx/conf.d/default.conf
@@ -171,7 +192,7 @@ screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7600 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7700 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
-
+echo -e "[ ${green}INFO$NC ] Setting"
 # setting port ssh
 cd
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g'
@@ -198,6 +219,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 echo -e " [INFO] Successfully"
 sleep 1
 cd
+echo -e "[ ${green}INFO$NC ] Setting"
 # install stunnel
 #apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
@@ -225,12 +247,13 @@ connect = 127.0.0.1:1194
 
 END
 
+echo -e "[ ${green}INFO$NC ] Install Stunnel"
 # make a certificate
 openssl genrsa -out key.pem 2048
 openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
 -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
 cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
-
+echo -e "[ ${green}INFO$NC ] Setting"
 # konfigurasi stunnel
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
@@ -275,7 +298,7 @@ wget -qc -O /etc/issue.net "https://raw.githubusercontent.com/khairunisya/multiw
 chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
-
+echo -e "[ ${green}INFO$NC ] Setting"
 # download script
 cd /usr/bin
 sleep 1
@@ -324,6 +347,7 @@ fi
 # apt-get -y remove sendmail* >/dev/null 2>&1
 # apt autoremove -y >/dev/null 2>&1
 # finishing
+echo -e "[ ${green}INFO$NC ] Setting"
 cd
 chown -R www-data:www-data /home/vps/public_html
 sleep 1
@@ -350,7 +374,8 @@ echo -e "[ ${green}ok${NC} ] Restarting stunnel4 "
 sleep 1
 echo -e "[ ${green}ok${NC} ] Restarting vnstat "
 /etc/init.d/squid restart >/dev/null 2>&1
-
+echo -e "[ ${green}INFO$NC ] Setting UDPGW"
+sleep 2
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
