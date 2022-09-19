@@ -203,7 +203,7 @@ sleep 2
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -qc -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/nginx.conf"
-rm /etc/nginx/conf.d/vps.conf
+#rm /etc/nginx/conf.d/vps.conf
 wget -qc -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/vps.conf"
 /etc/init.d/nginx restart
 echo -e "[ ${green}INFO$NC ] Setting"
