@@ -13,6 +13,8 @@
 Port 22
 Port 99
 Port 169
+Port 3369
+Port 2269
 
 #AddressFamily any
 #ListenAddress 0.0.0.0

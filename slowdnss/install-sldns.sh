@@ -61,13 +61,13 @@ wget -q -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/khairuni
 chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
 cd
-wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/client-sldns.service"
-wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server-sldns.service"
+#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/client-sldns.service"
+#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server-sldns.service"
 cd
 install client-sldns.service
 cat > /etc/systemd/system/client-sldns.service << END
 [Unit]
-Description=Client SlowDNS By Jrtunnel
+Description=Client SlowDNS By Jrtunnel Mwoi
 Documentation=https://www.jrtunnel.com
 After=network.target nss-lookup.target
 
@@ -77,7 +77,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/etc/slowdns/sldns-client -udp 8.8.8.8:53 --pubkey-file /root/.dns/server.pub $nameserver 127.0.0.1:22
+ExecStart=/etc/slowdns/sldns-client -udp 8.8.8.8:53 --pubkey-file /root/.dns/server.pub $nameserver 127.0.0.1:3369
 Restart=on-failure
 
 [Install]
@@ -87,7 +87,7 @@ cd
 install server-sldns.service
 cat > /etc/systemd/system/server-sldns.service << END
 [Unit]
-Description=Server SlowDNS By Jrtunnel
+Description=Server SlowDNS By Jrtunnel Mwoi
 Documentation=https://www.jrtunnel.com
 After=network.target nss-lookup.target
 
@@ -97,7 +97,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/etc/slowdns/sldns-server -udp :5300 -privkey-file /root/.dns/server.key $nameserver 127.0.0.1:22
+ExecStart=/etc/slowdns/sldns-server -udp :5300 -privkey-file /root/.dns/server.key $nameserver 127.0.0.1:2269
 Restart=on-failure
 
 [Install]
