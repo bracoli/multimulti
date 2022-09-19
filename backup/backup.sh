@@ -72,7 +72,7 @@ fi
 IP=$(curl -sS ipv4.icanhazip.com);
 date=$(date +"%Y-%m-%d")
 
-itoken=$(curl -sS https://raw.githubusercontent.com/khairunisya/update/main/asu)
+itoken=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/asi)
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
 NameUser=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | grep $MYIP | awk '{print $2}')
@@ -131,8 +131,8 @@ mv /root/$NameUser.zip /root/user-backup/$NameUser/
 Save_And_Exit () {
     DATE=$(date +'%d %B %Y')
     cd /root/user-backup
-    git config --global user.email "sshsedang@gmail.com" &> /dev/null
-    git config --global user.name "SSHSEDANG4" &> /dev/null
+    git config --global user.email "jrtunnelssh@gmail.com" &> /dev/null
+    git config --global user.name "Jrtunnel" &> /dev/null
     rm -rf .git &> /dev/null
     git init &> /dev/null
     git add . &> /dev/null

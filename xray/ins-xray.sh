@@ -99,11 +99,11 @@ ntpdate pool.ntp.org
 apt -y install chrony
 apt install zip -y
 apt install curl pwgen openssl netcat cron -y
-
+echo -e " [INFO] Successfully"
+sleep 1
 
 # install xray
-sleep 1
-echo -e "[ ${green}INFO$NC ] Downloading & Installing xray core"
+
 domainSock_dir="/run/xray";! [ -d $domainSock_dir ] && mkdir  $domainSock_dir
 chown www-data.www-data $domainSock_dir
 # Make Folder XRay
@@ -116,16 +116,18 @@ touch /var/log/xray/error.log
 touch /var/log/xray/access2.log
 touch /var/log/xray/error2.log
 # / / Ambil Xray Core Version Terbaru
-
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
 # Ambil Xray Core Version Terbaru
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
 # Installation Xray Core
 # $latest_version
 xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v1.5.9/xray-linux-64.zip"
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version $latest_version
+echo -e " [INFO] Successfully"
+sleep 1
 
-
-
+echo -e "[ ${green}INFO${NC} ] Install Crt SSL VMess... "
 ## crt xray
 systemctl stop nginx
 mkdir /root/.acme.sh
@@ -135,6 +137,8 @@ chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+echo -e " [INFO] Successfully"
+sleep 1
 
 # nginx renew ssl
 echo -n '#!/bin/bash
@@ -559,15 +563,17 @@ systemctl restart xray
 systemctl restart nginx
 systemctl enable runn
 systemctl restart runn
-
+echo -e " [INFO] Successfully"
 sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
 wget -qc -O /usr/bin/auto-set "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/auto-set.sh" && chmod +x /usr/bin/auto-set 
 wget -qc -O /usr/bin/crtxray "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/crt.sh" && chmod +x /usr/bin/crtxray 
 sleep 1
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"
 yellow "xray/Vless"
-
+echo -e " [INFO] Successfully"
+sleep 1
 
 
 mv /root/domain /etc/xray/ 

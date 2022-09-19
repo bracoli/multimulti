@@ -19,10 +19,13 @@ organizationalunit=Jrtunnel
 commonname=none
 email=admin@jrtunnel.com
 
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Installer SSH... "
 # simple password minimal
 curl -sS https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
-
+echo -e " [INFO] Successfully"
+sleep 1
 # go to root
 cd
 
@@ -127,6 +130,8 @@ install_ssl(){
 # install webserver
 apt -y install nginx
 cd
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Installer Nginx... "
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -qc -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/nginx.conf"
@@ -146,8 +151,12 @@ wget -qc -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/
 wget -qc -O /home/vps/public_html/.htaccess "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/.htaccess"
 mkdir /home/vps/public_html/ss-ws
 mkdir /home/vps/public_html/clash-ws
+echo -e " [INFO] Successfully"
+sleep 1
 # install badvpn
 cd
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Waiting... "
 wget -qc -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
@@ -174,7 +183,8 @@ sed -i '/Port 22/a Port 58080' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 200' /etc/ssh/sshd_config
 sed -i 's/#Port 22/Port 22/g' /etc/ssh/sshd_config
 /etc/init.d/ssh restart
-
+echo -e " [INFO] Successfully"
+sleep 1
 echo "=== Install Dropbear ==="
 # install dropbear
 #apt -y install dropbear
@@ -185,7 +195,8 @@ echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
-
+echo -e " [INFO] Successfully"
+sleep 1
 cd
 # install stunnel
 #apt install stunnel4 -y
@@ -227,7 +238,8 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 
 # install fail2ban
 apt -y install fail2ban
-
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Installer DDOs Protect... "
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
 	echo; echo; echo "Please un-install the previous version first"
@@ -254,7 +266,8 @@ echo '.....done'
 echo; echo 'Installation has completed.'
 echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
-
+echo -e " [INFO] Successfully"
+sleep 1
 # banner /etc/issue.net
 sleep 1
 echo -e "[ ${green}INFO$NC ] Settings banner"
@@ -265,6 +278,8 @@ sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dr
 
 # download script
 cd /usr/bin
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
 wget -qc -O speedtest "https://github.com/SSHSEDANG4/speedtest-cli/raw/main/speedtest_cli.py"
 wget -qc -O xp "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/xp.sh"
 wget -qc -O auto-set "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/auto-set.sh"
@@ -272,7 +287,8 @@ chmod +x speedtest
 chmod +x xp
 chmod +x auto-set
 cd
-
+echo -e " [INFO] Successfully"
+sleep 1
 
 cat > /etc/cron.d/re_otm <<-END
 SHELL=/bin/sh
@@ -347,11 +363,15 @@ screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
 history -c
 echo "unset HISTFILE" >> /etc/profile
 
+echo -e " [INFO] Successfully"
+sleep 1
 
 rm -f /root/key.pem
 rm -f /root/cert.pem
 rm -f /root/ssh-vpn.sh
 rm -f /root/bbr.sh
 
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Finishing... "
 # finihsing
 clear

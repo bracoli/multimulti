@@ -17,10 +17,10 @@ green='\e[0;32m'
 yell='\e[1;33m'
 NC='\e[0m'
 echo "Installing SSH Websocket by SSH Jrtunnel NETWORK" | lolcat
-echo "Progress..." | lolcat
-sleep 3
-cd
 
+cd
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
 wget -qc -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/dropbear-ws.py
 wget -qc -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/ws-stunnel
 
@@ -31,6 +31,8 @@ wget -qc -O /etc/systemd/system/ws-dropbear.service https://raw.githubuserconten
 
 wget -qc -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
 
+echo -e " [INFO] Successfully"
+sleep 1
 systemctl daemon-reload
 systemctl enable ws-dropbear.service
 systemctl start ws-dropbear.service

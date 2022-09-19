@@ -18,12 +18,14 @@ yell='\e[1;33m'
 NC='\e[0m'
 echo "Installing SSH Websocket None TLS by SSH Jrtunnel NETWORK" | lolcat
 echo "Progress..." | lolcat
-sleep 3
-
+sleep 2
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
 # Getting Proxy Template
 wget -qc -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/ws-nontls.py
 chmod +x /usr/local/bin/ws-nontls
-
+echo -e " [INFO] Successfully"
+sleep 1
 # Installing Service
 cat > /etc/systemd/system/ws-nontls.service << END
 [Unit]

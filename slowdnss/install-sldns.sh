@@ -18,7 +18,8 @@ yell='\e[1;33m'
 NC='\e[0m'
 echo "Installing SSH Slowdns" | lolcat
 echo "Progress..." | lolcat
-sleep 3
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
 nameserver=$(cat /root/nsdomain)
 echo -e "[ ${green}INFO${NC} ] Download File... "
@@ -33,7 +34,8 @@ apt install iptables -y
 service cron reload
 service cron restart
 service iptables reload
-echo "Progress..." | lolcat
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
 cd /usr/local
 wget -qc https://golang.org/dl/go1.16.2.linux-amd64.tar.gz
 tar xvf go1.16.2.linux-amd64.tar.gz
@@ -41,6 +43,8 @@ export GOROOT=/usr/local/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 cd /root
 apt install git -y
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
 git clone https://www.bamsoftware.com/git/dnstt.git temp
 mv /root/temp /root/slowdns
 rm -rf temp
@@ -54,7 +58,8 @@ mv /root/slowdns/dnstt-server/server.key /root/.dns/server.key
 mv /root/slowdns/dnstt-server/server.pub /root/.dns/server.pub
 rm -rf /etc/slowdns
 mkdir -m 777 /etc/slowdns
-
+echo -e " [INFO] Successfully"
+sleep 1
 cd /root
 rm -rf slowdns
 sleep 1
@@ -65,6 +70,8 @@ sleep 1
 chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
 cd
+echo -e " [INFO] Successfully"
+sleep 1
 #wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/client-sldns.service"
 #wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server-sldns.service"
 cd
@@ -129,4 +136,7 @@ systemctl start client-sldns
 systemctl start server-sldns
 systemctl restart client-sldns
 systemctl restart server-sldns
+cd
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files Success "
 cd
