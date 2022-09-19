@@ -346,12 +346,12 @@ echo "   - Admin Control" | tee -a log-install.txt
 echo "   - Restore Data" | tee -a log-install.txt
 echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   >>> Contact : t.me/sshsedang (Text Only)"  | tee -a log-install.txt
+echo "   >>> Contact : t.me/jrtunnelssh (Text Only)"  | tee -a log-install.txt
 echo ""
 echo ""
 echo "------------------------------------------------------------"
 echo ""
-echo "===============-[ Script Created By SSNVPN ]-==============="
+echo "===============-[ Script Created By Jrtunnel ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt

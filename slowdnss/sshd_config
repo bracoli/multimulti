@@ -11,9 +11,9 @@
 # default value.
 
 Port 22
-
-Port 169
 Port 99
+Port 169
+
 #AddressFamily any
 #ListenAddress 0.0.0.0
 #ListenAddress ::
