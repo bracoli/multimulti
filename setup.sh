@@ -199,7 +199,7 @@ wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/dependencies
 rm dependencies.sh
 clear
 echo "----------------------------------------------------------------------------------"
-echo " $green Add Domain You Domain Pointing IP Adrress For VMess/vless/trojan dll   $NC"
+echo -e "[ ${green}INFO${NC} ] Add Domain You Domain Pointing IP Adrress For VMess/vless/trojan dll"
 echo "-----------------------------------------------------------------------------------"
 echo ""
 echo "-------------------------------------"

@@ -70,7 +70,7 @@ exit 0
 fi
 function addssh(){
 clear
-dnsdomain=$(cat /root/nsdomain)
+dnsdomain=$(cat /home/nsdomain)
 dnskey=$(cat /root/.dns/server.pub)
 domen=`cat /etc/xray/domain`
 portsshws=`cat ~/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}'`
@@ -144,7 +144,7 @@ ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
-dnsdomain=$(cat /root/nsdomain)
+dnsdomain=$(cat /home/nsdomain)
 dnskey=$(cat /root/.dns/server.pub)
 OhpSSH=`cat /root/log-install.txt | grep -w "OHP SSH" | cut -d: -f2 | awk '{print $1}'`
 OhpDB=`cat /root/log-install.txt | grep -w "OHP DBear" | cut -d: -f2 | awk '{print $1}'`
@@ -541,7 +541,7 @@ opensh=`cat /root/log-install.txt | grep -w "OpenSSH" | cut -f2 -d: | awk '{prin
 db=`cat /root/log-install.txt | grep -w "Dropbear" | cut -f2 -d: | awk '{print $1,$2}'`
 ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
 OhpSSH=`cat /root/log-install.txt | grep -w "OHP SSH" | cut -d: -f2 | awk '{print $1}'`
-dnsdomain=$(cat /root/nsdomain)
+dnsdomain=$(cat /home/nsdomain)
 dnskey=$(cat /root/.dns/server.pub)
 
 
