@@ -43,7 +43,7 @@ PERMISSION () {
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
-    res="Permission Denied!"
+    res="Permission Denied! Please Contact Admin t.me/jrtunnelssh"
     fi
     BURIQ
 }
@@ -111,13 +111,15 @@ if [ "" = "$PKG_OK" ]; then
   echo ""
   sleep 1
   echo -e "[ ${tyblue}NOTES${NC} ] After rebooting"
-  sleep 1
+  sleep 3
   echo -e "[ ${tyblue}NOTES${NC} ] Then run this script again"
   echo -e "[ ${tyblue}NOTES${NC} ] Notes, Script By : SSH JRTUNNEL NETWORK"
   echo -e "[ ${tyblue}NOTES${NC} ] if you understand then tap enter now.."
+  sleep 2
   read
 else
   echo -e "[ ${green}INFO${NC} ] Oke installed"
+  sleep 1
 fi
 
 ttet=`uname -r`
@@ -196,10 +198,12 @@ echo ""
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
 rm dependencies.sh
 clear
-
-yellow "Add Domain for vmess/vless/trojan dll"
+echo "----------------------------------------------------------------------------------"
+echo " $green Add Domain You Domain Pointing IP Adrress For VMess/vless/trojan dll   $NC"
+echo "-----------------------------------------------------------------------------------"
+echo ""
 echo "-------------------------------------"
-echo "     Scipt By SSH SEDANG NETWORK"
+echo "     SCRIPT BY SSH JRTUNNEL NETWORK  "
 echo "-------------------------------------"
 read -rp "Input your domain : " -e pp
 echo "$pp" > /root/domain
