@@ -271,34 +271,26 @@ echo -e "[ ${green}ok${NC} ] Install Shadowsocks"
 sleep 1
 echo -e "$green[INFO]$NC Install SSH"
 sleep 1
-clear
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "$green[INFO]$NC Install Install XRAY!"
 sleep 2
-clear
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 echo -e "$green[INFO]$NC SET BR"
 sleep 2
-clear
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 echo -e "$green[INFO]$NC Install SSH WS"
 sleep 2
-clear
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 echo -e "$green[INFO]$NC Install SSH Non TLS"
 sleep 2
-clear
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/nontls.sh && chmod +x nontls.sh && ./nontls.sh
 echo -e "$green[INFO]$NC Install SSH Slow DNS"
 sleep 2
-clear
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/install-sldns.sh && chmod +x install-sldns.sh && ./install-sldns.sh
 echo -e "$green[INFO]$NC Install Update"
 sleep 2
-clear
 echo -e "$green[INFO]$NC Download Extra Menu"
-sleep 2
 wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/update/update.sh && chmod +x update.sh && ./update.sh
 clear
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
