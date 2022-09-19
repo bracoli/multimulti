@@ -169,6 +169,7 @@ uis="${GREEN}Premium User$NC"
 fi
 
 if [ "$cekup" = "day" ]; then
+echo -e "$COLOR1│$NC User Roles  : $uis"
 echo -e "$COLOR1│$NC System Uptime  : $uphours $upminutes $uptimecek"
 else
 echo -e "$COLOR1│$NC System Uptime  : $uphours $upminutes"
@@ -178,7 +179,11 @@ echo -e "$COLOR1│$NC ISP & City     : $ISP & $CITY"
 echo -e "$COLOR1│$NC Current Domain : $(cat /etc/xray/domain)"
 echo -e "$COLOR1│$NC IP-VPS         : ${COLOR1}$IPVPS${NC}"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "                     List Menu                  "
+echo -e "                      Status Service Running                   "
+echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$COLOR1│${NC} [ SSH WS : $status_ws ] [ XRAY : $status_xray ] [NGINX : $status_nginx ] $COLOR1│$NC"
+echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
+echo -e ""
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "  ${COLOR1}[01]${NC} • [${YELLOW}Menu${NC}] SSHWS     ${COLOR1}[07]${NC} • [${YELLOW}Menu${NC}] THEME     $COLOR1│$NC"   
 echo -e "  ${COLOR1}[02]${NC} • [${YELLOW}Menu${NC}] VMESS     ${COLOR1}[08]${NC} • [${YELLOW}Menu${NC}] BACKUP    $COLOR1│$NC"  
@@ -217,7 +222,6 @@ mai="datediff "$Exp" "$DATE""
 
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐$NC"
 echo -e "$COLOR1│$NC Version     :${COLOR1} $(cat /opt/.ver) Latest Version${NC}"
-echo -e "$COLOR1│$NC User Roles  : $uis"
 echo -e "$COLOR1│$NC Client Name : $Name"
 if [ $exp \> 1000 ];
 then
