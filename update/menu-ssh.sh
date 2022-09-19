@@ -71,7 +71,7 @@ fi
 function addssh(){
 clear
 dnsdomain=$(cat /root/nsdomain)
-dnskey=$(cat /etc/slowdns/server.pub)
+dnskey=$(cat /root/.dns/server.pub)
 domen=`cat /etc/xray/domain`
 portsshws=`cat ~/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}'`
 wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}'`
@@ -145,7 +145,7 @@ sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 dnsdomain=$(cat /root/nsdomain)
-dnskey=$(cat /etc/slowdns/server.pub)
+dnskey=$(cat /root/.dns/server.pub)
 OhpSSH=`cat /root/log-install.txt | grep -w "OHP SSH" | cut -d: -f2 | awk '{print $1}'`
 OhpDB=`cat /root/log-install.txt | grep -w "OHP DBear" | cut -d: -f2 | awk '{print $1}'`
 OhpOVPN=`cat /root/log-install.txt | grep -w "OHP OpenVPN" | cut -d: -f2 | awk '{print $1}'`
@@ -178,7 +178,7 @@ echo -e "$COLOR1 $NC  NS Slowdns : $dnsdomain"
 echo -e "$COLOR1 $NC  DNS PubKey : $dnskey" 
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "  GET wss://bug.com/ HTTP/1.1[crlf]Host: [host] [crlf]Upgrade: websocket[crlf][crlf]"
+echo -e "  GET wss://bug.com/ HTTP/1.1[crlf]Host: $domen [crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.SSHSEDANG.MY.ID •            $COLOR1│$NC"
@@ -204,7 +204,7 @@ echo -e "$COLOR1 $NC  NS Slowdns : $dnsdomain"
 echo -e "$COLOR1 $NC  DNS PubKey : $dnskey" 
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "  GET wss://bug.com/ HTTP/1.1[crlf]Host: [host] [crlf]Upgrade: websocket[crlf][crlf]"
+echo -e "  GET wss://bug.com/ HTTP/1.1[crlf]Host: $domen [crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.SSHSEDANG.MY.ID •            $COLOR1│$NC"
@@ -540,7 +540,7 @@ db=`cat /root/log-install.txt | grep -w "Dropbear" | cut -f2 -d: | awk '{print $
 ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
 OhpSSH=`cat /root/log-install.txt | grep -w "OHP SSH" | cut -d: -f2 | awk '{print $1}'`
 dnsdomain=$(cat /root/nsdomain)
-dnskey=$(cat /etc/slowdns/server.pub)
+dnskey=$(cat /root/.dns/server.pub)
 
 
 Login=ssnvpn`</dev/urandom tr -dc X-Z0-9 | head -c4`
@@ -578,7 +578,7 @@ echo -e "$COLOR1 $NC  NS Slowdns : $dnsdomain"
 echo -e "$COLOR1 $NC  DNS PubKey : $dnskey" 
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "  GET wss://bug.com/ HTTP/1.1[crlf]Host: [host] [crlf]Upgrade: websocket[crlf][crlf]"
+echo -e "  GET wss://bug.com/ HTTP/1.1[crlf]Host: $domen [crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.SSHSEDANG.MY.ID •            $COLOR1│$NC"
@@ -606,7 +606,7 @@ echo -e "$COLOR1 $NC  NS Slowdns : $dnsdomain"
 echo -e "$COLOR1 $NC  DNS PubKey : $dnskey" 
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}  GET wss://bug.com/ HTTP/1.1[crlf]Host: [host] [crlf]Upgrade: websocket[crlf][crlf]"
+echo -e "$COLOR1 ${NC}  GET wss://bug.com/ HTTP/1.1[crlf]Host: $domen [crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.SSHSEDANG.MY.ID •            $COLOR1│$NC"
