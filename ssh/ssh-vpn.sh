@@ -87,7 +87,7 @@ echo -e "[ ${green}INFO${NC} ] Installer SSH... "
 # simple password minimal
 curl -sS https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
-echo -e " [INFO] Successfully"
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 sleep 1
 # go to root
 cd
@@ -150,7 +150,7 @@ apt -y install wget curl
 apt-get install figlet -y
 apt-get install ruby -y
 gem install lolcat
-
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 # set time GMT +7
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
@@ -198,6 +198,8 @@ echo -e "[ ${green}INFO${NC} ] Installer Nginx... "
 # install webserver
 apt -y install nginx
 cd
+echo -e "[ ${green}INFO${NC} ] Installer... "
+sleep 2
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -qc -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/nginx.conf"
@@ -210,6 +212,8 @@ printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.s
 rm /etc/nginx/conf.d/default.conf
 systemctl daemon-reload
 service nginx restart
+echo -e "[ ${green}INFO${NC} ] Success... "
+sleep 1
 cd
 mkdir /home/vps
 mkdir /home/vps/public_html
@@ -217,7 +221,7 @@ wget -qc -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/
 wget -qc -O /home/vps/public_html/.htaccess "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/.htaccess"
 mkdir /home/vps/public_html/ss-ws
 mkdir /home/vps/public_html/clash-ws
-echo -e " [INFO] Successfully"
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 sleep 1
 # install badvpn
 cd
@@ -249,7 +253,7 @@ sed -i '/Port 22/a Port 58080' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 200' /etc/ssh/sshd_config
 sed -i 's/#Port 22/Port 22/g' /etc/ssh/sshd_config
 /etc/init.d/ssh restart
-echo -e " [INFO] Successfully"
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 sleep 1
 echo "=== Install Dropbear ==="
 # install dropbear
@@ -262,7 +266,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
 echo -e " [INFO] Successfully"
-sleep 1
+sleepecho -e " [ ${green}INFO${NC} ] Successfully.. " 1
 cd
 echo -e "[ ${green}INFO$NC ] Setting"
 sleep 2
@@ -292,7 +296,7 @@ accept = 442
 connect = 127.0.0.1:1194
 
 END
-
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 echo -e "[ ${green}INFO$NC ] Install Stunnel"
 # make a certificate
 openssl genrsa -out key.pem 2048
@@ -303,7 +307,7 @@ echo -e "[ ${green}INFO$NC ] Setting"
 # konfigurasi stunnel
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
-
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 echo -e "[ ${green}INFO${NC} ] Installer DDOs Protect... "
 sleep 2
 # install fail2ban
@@ -316,6 +320,7 @@ else
 	mkdir /usr/local/ddos
 fi
 clear
+echo -e " [ ${green}INFO${NC} ] Install DDOS.. "
 echo; echo 'Installing DOS-Deflate 0.6'; echo
 echo; echo -n 'Downloading source files...'
 wget -qc -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf
@@ -334,7 +339,7 @@ echo '.....done'
 echo; echo 'Installation has completed.'
 echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
-echo -e " [INFO] Successfully"
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 sleep 1
 # banner /etc/issue.net
 sleep 1
@@ -356,7 +361,7 @@ chmod +x speedtest
 chmod +x xp
 chmod +x auto-set
 cd
-echo -e " [INFO] Successfully"
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 sleep 1
 
 cat > /etc/cron.d/re_otm <<-END
@@ -434,7 +439,7 @@ screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
 history -c
 echo "unset HISTFILE" >> /etc/profile
 
-echo -e " [INFO] Successfully"
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 sleep 1
 
 rm -f /root/key.pem

@@ -76,7 +76,7 @@ red='\e[1;31m'
 green='\e[0;32m'
 yell='\e[1;33m'
 NC='\e[0m'
-echo "Installing SSH Slowdns" | lolcat
+echo -e " [ ${green}INFO${NC} ] Installing SSH Slow DNS "
 echo "Progress..." | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
@@ -85,6 +85,7 @@ nameserver=$(cat /root/nsdomain)
 echo -e "[ ${green}INFO${NC} ] Download File... "
 echo "Progress..." | lolcat
 # SSH SlowDNS
+echo -e " [ ${green}INFO${NC} ] Successfully.. "
 wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sshd_config
 systemctl restart sshd
 sleep 1
@@ -105,20 +106,24 @@ cd /root
 apt install git -y
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
-git clone https://www.bamsoftware.com/git/dnstt.git temp
-mv /root/temp /root/slowdns
-rm -rf temp
+git clone https://www.bamsoftware.com/git/dnstt.git jrtunnel
+mv /root/jrtunnel /root/slowdns
+rm -rf jrtunnel
 cd /root/slowdns/dnstt-server
 go build
+echo -e "[ ${green}INFO${NC} ] Install Key... "
+sleep 1
 ./dnstt-server -gen-key -privkey-file /root/slowdns/dnstt-server/server.key -pubkey-file /root/slowdns/dnstt-server/server.pub
+echo -e "[ ${green}INFO${NC} ] Successfully... "
+sleep 1
 mkdir -m 777 /root/.dns
 sleep 2
-echo -e "[ ${green}INFO${NC} ] Install... "
+echo -e "[ ${green}INFO${NC} ] Waiting... "
 mv /root/slowdns/dnstt-server/server.key /root/.dns/server.key
 mv /root/slowdns/dnstt-server/server.pub /root/.dns/server.pub
 rm -rf /etc/slowdns
 mkdir -m 777 /etc/slowdns
-echo -e " [INFO] Successfully"
+echo -e "[ ${green}INFO${NC} ] Successfully... "
 sleep 1
 cd /root
 rm -rf slowdns
@@ -130,11 +135,14 @@ sleep 1
 chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
 cd
-echo -e " [INFO] Successfully"
+echo -e "[ ${green}INFO${NC} ] Successfully... "
 sleep 1
 #wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/client-sldns.service"
 #wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server-sldns.service"
 cd
+sleep 1
+echo -e "[ ${green}INFO${NC} ] System Prosess... "
+sleep 2
 install client-sldns.service
 cat > /etc/systemd/system/client-sldns.service << END
 [Unit]
@@ -175,6 +183,7 @@ Restart=on-failure
 WantedBy=multi-user.target
 END
 cd
+echo -e "[ ${green}INFO${NC} ] Successfully... "
 chmod +x /etc/systemd/system/client-sldns.service
 chmod +x /etc/systemd/system/server-sldns.service
 pkill sldns-server
