@@ -113,7 +113,7 @@ if [ "" = "$PKG_OK" ]; then
   echo -e "[ ${tyblue}NOTES${NC} ] After rebooting"
   sleep 1
   echo -e "[ ${tyblue}NOTES${NC} ] Then run this script again"
-  echo -e "[ ${tyblue}NOTES${NC} ] Notes, Script By : SSH SEDANG NETWORK"
+  echo -e "[ ${tyblue}NOTES${NC} ] Notes, Script By : SSH JRTUNNEL NETWORK"
   echo -e "[ ${tyblue}NOTES${NC} ] if you understand then tap enter now.."
   read
 else
