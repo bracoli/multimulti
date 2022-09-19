@@ -203,6 +203,7 @@ echo -e "$COLOR1 $NC  SSL/TLS    : $ssl"
 echo -e "$COLOR1 $NC  UDPGW      : 7100-7300" 
 echo -e "$COLOR1 $NC  NS Slowdns : $dnsdomain"
 echo -e "$COLOR1 $NC  DNS PubKey : $dnskey" 
+echo -e "$COLOR1 $NC  CustomSlow : $dnskey@$Login:$Pass@$dnsdomain"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "  GET wss://bug.com/ HTTP/1.1[crlf]Host: $domen [crlf]Upgrade: websocket[crlf][crlf]"
@@ -222,7 +223,7 @@ portsshws=`cat ~/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '
 if [ -f "/etc/systemd/system/sshws.service" ]; then
 clear
 else
-wget -q -O /usr/bin/proxy3.js "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/proxy3.js"
+wget -qc -O /usr/bin/proxy3.js "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/proxy3.js"
 cat <<EOF > /etc/systemd/system/sshws.service
 [Unit]
 Description=WSenabler
@@ -247,7 +248,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}               • WEBSOCKET MENU •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}" 
-wget -q -O /usr/bin/ssh-wsenabler "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/sshws-true.sh" && chmod +x /usr/bin/ssh-wsenabler
+wget -qc -O /usr/bin/ssh-wsenabler "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/sshws-true.sh" && chmod +x /usr/bin/ssh-wsenabler
 systemctl daemon-reload >/dev/null 2>&1
 systemctl enable sshws.service >/dev/null 2>&1
 systemctl start sshws.service >/dev/null 2>&1

@@ -19,22 +19,23 @@ NC='\e[0m'
 echo "Installing SSH Slowdns" | lolcat
 echo "Progress..." | lolcat
 sleep 3
-wget https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
+wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
 nameserver=$(cat /root/nsdomain)
-
+echo -e "[ ${green}INFO${NC} ] Download File... "
+echo "Progress..." | lolcat
 # SSH SlowDNS
-wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sshd_config
+wget -qcO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sshd_config
 systemctl restart sshd
-
+sleep 1
 apt install screen -y
 apt install cron -y
 apt install iptables -y
 service cron reload
 service cron restart
 service iptables reload
-
+echo "Progress..." | lolcat
 cd /usr/local
-wget https://golang.org/dl/go1.16.2.linux-amd64.tar.gz
+wget -qc https://golang.org/dl/go1.16.2.linux-amd64.tar.gz
 tar xvf go1.16.2.linux-amd64.tar.gz
 export GOROOT=/usr/local/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
@@ -47,6 +48,8 @@ cd /root/slowdns/dnstt-server
 go build
 ./dnstt-server -gen-key -privkey-file /root/slowdns/dnstt-server/server.key -pubkey-file /root/slowdns/dnstt-server/server.pub
 mkdir -m 777 /root/.dns
+sleep 2
+echo -e "[ ${green}INFO${NC} ] Install... "
 mv /root/slowdns/dnstt-server/server.key /root/.dns/server.key
 mv /root/slowdns/dnstt-server/server.pub /root/.dns/server.pub
 rm -rf /etc/slowdns
@@ -54,10 +57,11 @@ mkdir -m 777 /etc/slowdns
 
 cd /root
 rm -rf slowdns
-
-wget -q -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sldns-server"
-wget -q -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sldns-client"
-
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
+wget -qc -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sldns-server"
+wget -qc -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sldns-client"
+sleep 1
 chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
 cd

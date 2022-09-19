@@ -546,7 +546,7 @@ sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
 sleep 1
 echo -e "[ ${green}INFO$NC ] Installing bbr.."
-wget -q -O /usr/bin/bbr "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/bbr.sh"
+wget -qc -O /usr/bin/bbr "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/bbr.sh"
 chmod +x /usr/bin/bbr
 bbr >/dev/null 2>&1
 rm /usr/bin/bbr >/dev/null 2>&1
@@ -561,8 +561,8 @@ systemctl enable runn
 systemctl restart runn
 
 sleep 1
-wget -q -O /usr/bin/auto-set "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/auto-set.sh" && chmod +x /usr/bin/auto-set 
-wget -q -O /usr/bin/crtxray "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/crt.sh" && chmod +x /usr/bin/crtxray 
+wget -qc -O /usr/bin/auto-set "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/auto-set.sh" && chmod +x /usr/bin/auto-set 
+wget -qc -O /usr/bin/crtxray "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/crt.sh" && chmod +x /usr/bin/crtxray 
 sleep 1
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"

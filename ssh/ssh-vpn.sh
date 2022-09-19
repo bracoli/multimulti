@@ -129,9 +129,9 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/nginx.conf"
+wget -qc -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/nginx.conf"
 rm /etc/nginx/conf.d/vps.conf
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/vps.conf"
+wget -qc -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/vps.conf"
 /etc/init.d/nginx restart
 
 mkdir /etc/systemd/system/nginx.service.d
@@ -142,13 +142,13 @@ service nginx restart
 cd
 mkdir /home/vps
 mkdir /home/vps/public_html
-wget -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/multiport"
-wget -O /home/vps/public_html/.htaccess "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/.htaccess"
+wget -qc -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/multiport"
+wget -qc -O /home/vps/public_html/.htaccess "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/.htaccess"
 mkdir /home/vps/public_html/ss-ws
 mkdir /home/vps/public_html/clash-ws
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/newudpgw"
+wget -qc -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -238,13 +238,13 @@ fi
 clear
 echo; echo 'Installing DOS-Deflate 0.6'; echo
 echo; echo -n 'Downloading source files...'
-wget -q -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf
+wget -qc -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf
 echo -n '.'
-wget -q -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE
+wget -qc -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE
 echo -n '.'
-wget -q -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list
+wget -qc -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list
 echo -n '.'
-wget -q -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh
+wget -qc -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh
 chmod 0755 /usr/local/ddos/ddos.sh
 cp -s /usr/local/ddos/ddos.sh /usr/local/sbin/ddos
 echo '...done'
@@ -258,16 +258,16 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 # banner /etc/issue.net
 sleep 1
 echo -e "[ ${green}INFO$NC ] Settings banner"
-wget -q -O /etc/issue.net "https://raw.githubusercontent.com/khairunisya/multiws/main/issue.net"
+wget -qc -O /etc/issue.net "https://raw.githubusercontent.com/khairunisya/multiws/main/issue.net"
 chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # download script
 cd /usr/bin
-wget -O speedtest "https://github.com/SSHSEDANG4/speedtest-cli/raw/main/speedtest_cli.py"
-wget -O xp "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/xp.sh"
-wget -O auto-set "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/auto-set.sh"
+wget -qc -O speedtest "https://github.com/SSHSEDANG4/speedtest-cli/raw/main/speedtest_cli.py"
+wget -qc -O xp "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/xp.sh"
+wget -qc -O auto-set "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/auto-set.sh"
 chmod +x speedtest
 chmod +x xp
 chmod +x auto-set
