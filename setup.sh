@@ -1,5 +1,5 @@
 #!/bin/bash
-dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+dateFromServer=$(curl -v --silent https://nist.time.gov/ 2>&1 \ | grep '< Date' | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
 
@@ -12,7 +12,7 @@ BURIQ () {
     d1=(`date -d "$exp" +%s`)
     d2=(`date -d "$biji" +%s`)
     exp2=$(( (d1 - d2) / 86400 ))
-    if [[ "$exp2" -le "0" ]]; then
+    if [[ "$exp2" -eq "0" ]]; then
     echo $user > /etc/.$user.ini
     else
     rm -f  /etc/.$user.ini > /dev/null 2>&1
