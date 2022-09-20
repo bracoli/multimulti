@@ -2,7 +2,7 @@
 # Proxy For WS
 # ==========================================
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini > /root/tmp
+    curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -20,7 +20,7 @@ BURIQ () {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -37,7 +37,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -81,15 +81,15 @@ echo "Installing SSH Websocket by SSH Jrtunnel NETWORK" | lolcat
 cd
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
-wget -qc -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/dropbear-ws.py
-wget -qc -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/ws-stunnel
+wget -qc -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/bracoli/multimulti/main/websocket/dropbear-ws.py
+wget -qc -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/bracoli/multimulti/main/websocket/ws-stunnel
 
 chmod +x /usr/local/bin/ws-dropbear
 chmod +x /usr/local/bin/ws-stunnel
 
-wget -qc -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/service-wsdropbear && chmod +x /etc/systemd/system/ws-dropbear.service
+wget -qc -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/bracoli/multimulti/main/websocket/service-wsdropbear && chmod +x /etc/systemd/system/ws-dropbear.service
 
-wget -qc -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/khairunisya/multiws/main/websocket/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
+wget -qc -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/bracoli/multimulti/main/websocket/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
 
 echo -e " [INFO] Successfully"
 sleep 1
