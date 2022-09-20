@@ -6,7 +6,7 @@
 
 
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini > /root/tmp
+    curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -24,7 +24,7 @@ BURIQ () {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -41,7 +41,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -85,7 +85,7 @@ email=admin@jrtunnel.com
 
 echo -e "[ ${green}INFO${NC} ] Installer SSH... "
 # simple password minimal
-curl -sS https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
+curl -sS https://raw.githubusercontent.com/bracoli/multimulti/main/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 echo -e " [ ${green}INFO${NC} ] Successfully.. "
 sleep 1
@@ -202,9 +202,9 @@ echo -e "[ ${green}INFO${NC} ] Installer... "
 sleep 2
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -qc -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/nginx.conf"
+wget -qc -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/bracoli/multimulti/main/ssh/nginx.conf"
 rm /etc/nginx/conf.d/vps.conf
-wget -qc -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/vps.conf"
+wget -qc -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/bracoli/multimulti/main/ssh/vps.conf"
 /etc/init.d/nginx restart
 echo -e "[ ${green}INFO$NC ] Setting"
 mkdir /etc/systemd/system/nginx.service.d
@@ -217,8 +217,8 @@ sleep 1
 cd
 mkdir /home/vps
 mkdir /home/vps/public_html
-wget -qc -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/multiport"
-wget -qc -O /home/vps/public_html/.htaccess "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/.htaccess"
+wget -qc -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/bracoli/multimulti/main/ssh/multiport"
+wget -qc -O /home/vps/public_html/.htaccess "https://raw.githubusercontent.com/bracoli/multimulti/main/ssh/.htaccess"
 mkdir /home/vps/public_html/ss-ws
 mkdir /home/vps/public_html/clash-ws
 echo -e " [ ${green}INFO${NC} ] Successfully.. "
@@ -227,7 +227,7 @@ sleep 1
 cd
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Waiting... "
-wget -qc -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/newudpgw"
+wget -qc -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/bracoli/multimulti/main/ssh/newudpgw"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -345,7 +345,7 @@ sleep 1
 sleep 1
 echo -e "[ ${green}INFO$NC ] Settings banner"
 sleep 1
-wget -qc -O /etc/issue.net "https://raw.githubusercontent.com/khairunisya/multiws/main/issue.net"
+wget -qc -O /etc/issue.net "https://raw.githubusercontent.com/bracoli/multimulti/main/issue.net"
 chmod +x /etc/issue.net
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
@@ -355,8 +355,8 @@ sleep 1
 cd /usr/bin
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
 wget -qc -O speedtest "https://github.com/SSHSEDANG4/speedtest-cli/raw/main/speedtest_cli.py"
-wget -qc -O xp "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/xp.sh"
-wget -qc -O auto-set "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/auto-set.sh"
+wget -qc -O xp "https://raw.githubusercontent.com/bracoli/multimulti/main/ssh/xp.sh"
+wget -qc -O auto-set "https://raw.githubusercontent.com/bracoli/multimulti/main/xray/auto-set.sh"
 chmod +x speedtest
 chmod +x xp
 chmod +x auto-set
