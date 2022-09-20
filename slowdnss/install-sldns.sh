@@ -2,7 +2,7 @@
 # Slowdns Instalation by Jrtunnel 19-09-2022
 # ==========================================
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini > /root/tmp
+    curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -20,7 +20,7 @@ BURIQ () {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -37,7 +37,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -80,13 +80,13 @@ echo -e " [ ${green}INFO${NC} ] Installing SSH Slow DNS "
 echo "Progress..." | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
-wget -qc https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
+wget -qc https://raw.githubusercontent.com/bracoli/multimulti/main/slowdnss/hostdnss.sh && chmod +x hostdnss.sh &&  sed -i -e 's/\r$//' hostdnss.sh && ./hostdnss.sh
 nameserver=$(cat /home/nsdomain)
 echo -e "[ ${green}INFO${NC} ] Download File... "
 echo "Progress..." | lolcat
 # SSH SlowDNS
 echo -e " [ ${green}INFO${NC} ] Successfully.. "
-wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sshd_config
+wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/bracoli/multimulti/main/slowdnss/sshd_config
 systemctl restart sshd
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Tambahan... "
@@ -130,16 +130,16 @@ cd /root
 rm -rf slowdns
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
-wget -qc -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sldns-server"
-wget -qc -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/sldns-client"
+wget -qc -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/bracoli/multimulti/main/slowdnss/sldns-server"
+wget -qc -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/bracoli/multimulti/main/slowdnss/sldns-client"
 sleep 1
 chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
 cd
 echo -e "[ ${green}INFO${NC} ] Successfully... "
 sleep 1
-#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/client-sldns.service"
-#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/khairunisya/multiws/main/slowdnss/server-sldns.service"
+#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/bracoli/multimulti/main/slowdnss/client-sldns.service"
+#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/bracoli/multimulti/main/slowdnss/server-sldns.service"
 cd
 sleep 1
 echo -e "[ ${green}INFO${NC} ] System Prosess... "
