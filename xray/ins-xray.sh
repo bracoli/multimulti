@@ -4,7 +4,7 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
 
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini > /root/tmp
+    curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -22,7 +22,7 @@ BURIQ () {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -39,7 +39,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/khairunisya/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/bracoli/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -550,7 +550,7 @@ sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
 sleep 1
 echo -e "[ ${green}INFO$NC ] Installing bbr.."
-wget -qc -O /usr/bin/bbr "https://raw.githubusercontent.com/khairunisya/multiws/main/ssh/bbr.sh"
+wget -qc -O /usr/bin/bbr "https://raw.githubusercontent.com/bracoli/multimulti/main/ssh/bbr.sh"
 chmod +x /usr/bin/bbr
 bbr >/dev/null 2>&1
 rm /usr/bin/bbr >/dev/null 2>&1
@@ -566,8 +566,8 @@ systemctl restart runn
 echo -e " [INFO] Successfully"
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
-wget -qc -O /usr/bin/auto-set "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/auto-set.sh" && chmod +x /usr/bin/auto-set 
-wget -qc -O /usr/bin/crtxray "https://raw.githubusercontent.com/khairunisya/multiws/main/xray/crt.sh" && chmod +x /usr/bin/crtxray 
+wget -qc -O /usr/bin/auto-set "https://raw.githubusercontent.com/bracoli/multimulti/main/xray/auto-set.sh" && chmod +x /usr/bin/auto-set 
+wget -qc -O /usr/bin/crtxray "https://raw.githubusercontent.com/bracoli/multimulti/main/xray/crt.sh" && chmod +x /usr/bin/crtxray 
 sleep 1
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"
