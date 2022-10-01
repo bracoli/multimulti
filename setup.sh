@@ -43,7 +43,7 @@ PERMISSION () {
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
-    res="Permission Denied! Please Contact Admin t.me/jrtunnelssh"
+    res="Permission Denied! Please Contact Admin t.me/lukavpn"
     fi
     BURIQ
 }
@@ -113,7 +113,7 @@ if [ "" = "$PKG_OK" ]; then
   echo -e "[ ${tyblue}NOTES${NC} ] After rebooting"
   sleep 3
   echo -e "[ ${tyblue}NOTES${NC} ] Then run this script again"
-  echo -e "[ ${tyblue}NOTES${NC} ] Notes, Script By : SSH JRTUNNEL NETWORK"
+  echo -e "[ ${tyblue}NOTES${NC} ] Notes, Script By : telegram @lukavpn"
   echo -e "[ ${tyblue}NOTES${NC} ] if you understand then tap enter now.."
   sleep 2
   read
@@ -168,17 +168,17 @@ exit 0
 elif [ "$res" = "Permission Accepted..." ]; then
 green "Permission Accepted!"
 else
-red " Permission Denied! Please Contact Admin t.me/jrtunnelssh "
+red " Permission Denied! Please Contact Admin t.me/lukavpn "
 rm setup.sh > /dev/null 2>&1
 sleep 10
 exit 0
 fi
 sleep 3
 
-mkdir -p /etc/ssnvpn
-mkdir -p /etc/ssnvpn/theme
-mkdir -p /var/lib/ssnvpn-pro >/dev/null 2>&1
-echo "IP=" >> /var/lib/ssnvpn-pro/ipvps.conf
+mkdir -p /etc/lukavpn
+mkdir -p /etc/lukavpn/theme
+mkdir -p /var/lib/lukavpn-pro >/dev/null 2>&1
+echo "IP=" >> /var/lib/lukavpn-pro/ipvps.conf
 
 if [ -f "/etc/xray/domain" ]; then
 echo ""
@@ -210,46 +210,46 @@ echo "$pp" > /root/domain
 echo "$pp" > /root/scdomain
 echo "$pp" > /etc/xray/domain
 echo "$pp" > /etc/xray/scdomain
-echo "IP=$pp" > /var/lib/ssnvpn-pro/ipvps.conf
+echo "IP=$pp" > /var/lib/lukavpn-pro/ipvps.conf
 
 #THEME RED
-cat <<EOF>> /etc/ssnvpn/theme/red
+cat <<EOF>> /etc/lukavpn/theme/red
 BG : \E[40;1;41m
 TEXT : \033[0;31m
 EOF
 #THEME BLUE
-cat <<EOF>> /etc/ssnvpn/theme/blue
+cat <<EOF>> /etc/lukavpn/theme/blue
 BG : \E[40;1;44m
 TEXT : \033[0;34m
 EOF
 #THEME GREEN
-cat <<EOF>> /etc/ssnvpn/theme/green
+cat <<EOF>> /etc/lukavpn/theme/green
 BG : \E[40;1;42m
 TEXT : \033[0;32m
 EOF
 #THEME YELLOW
-cat <<EOF>> /etc/ssnvpn/theme/yellow
+cat <<EOF>> /etc/lukavpn/theme/yellow
 BG : \E[40;1;43m
 TEXT : \033[0;33m
 EOF
 #THEME MAGENTA
-cat <<EOF>> /etc/ssnvpn/theme/magenta
+cat <<EOF>> /etc/lukavpn/theme/magenta
 BG : \E[40;1;43m
 TEXT : \033[0;33m
 EOF
 #THEME CYAN
-cat <<EOF>> /etc/ssnvpn/theme/cyan
+cat <<EOF>> /etc/lukavpn/theme/cyan
 BG : \E[40;1;46m
 TEXT : \033[0;36m
 EOF
 #THEME CONFIG
-cat <<EOF>> /etc/ssnvpn/theme/color.conf
+cat <<EOF>> /etc/lukavpn/theme/color.conf
 blue
 EOF
     
 #install ssh ovpn
 sleep 1
-echo -e "$yell[SERVICE]$NC SCRIPT JRTUNNEL.COM"
+echo -e "$yell[SERVICE]$NC SCRIPT lukavpn.lol"
 sleep 1
 echo -e "[ ${green}ok${NC} ] Install SSH & VPN"
 sleep 1
@@ -373,7 +373,7 @@ echo "   - Admin Control" | tee -a log-install.txt
 echo "   - Restore Data" | tee -a log-install.txt
 echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   >>> Contact : t.me/jrtunnelssh (Text Only)"  | tee -a log-install.txt
+echo "   >>> Contact : t.me/lukavpn (Text Only)"  | tee -a log-install.txt
 echo ""
 echo ""
 echo "------------------------------------------------------------"

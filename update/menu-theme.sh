@@ -2,11 +2,11 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 ###########- COLOR CODE -##############
-colornow=$(cat /etc/ssnvpn/theme/color.conf)
+colornow=$(cat /etc/lukavpn/theme/color.conf)
 NC="\e[0m"
 RED="\033[0;31m" 
-COLOR1="$(cat /etc/ssnvpn/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/ssnvpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"                    
+COLOR1="$(cat /etc/lukavpn/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/lukavpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"                    
 ###########- END COLOR CODE -##########
 
 
@@ -73,14 +73,14 @@ echo -e " $COLOR1│$NC"
 echo -e " $COLOR1│$NC  $COLOR1 [00]$NC • GO BACK"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • WWW.JRTUNNEL.COM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • WWW.lukavpn.lol •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -p "  Select Options :  " colormenu 
 case $colormenu in
 01 | 1)
 clear
-echo "blue" >/etc/ssnvpn/theme/color.conf
+echo "blue" >/etc/lukavpn/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}                • BLUE THEME •                 ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -90,12 +90,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM BLUE Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • WWW.JRTUNNEL.COMD •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • WWW.lukavpn.lolD •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"                                                                                                                          
 ;;
 02 | 2)
 clear
-echo "red" >/etc/ssnvpn/theme/color.conf
+echo "red" >/etc/lukavpn/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}                • RED THEME •                  ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -105,12 +105,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM RED Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • WWW.JRTUNNEL.COM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • WWW.lukavpn.lol •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 03 | 3)
 clear
-echo "yellow" >/etc/ssnvpn/theme/color.conf
+echo "yellow" >/etc/lukavpn/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • YELLOW THEME •                ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -120,12 +120,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM YELLOW Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • WWW.JRTUNNEL.COM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • WWW.lukavpn.lol •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 04 | 4)
 clear
-echo "cyan" >/etc/ssnvpn/theme/color.conf
+echo "cyan" >/etc/lukavpn/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}                • CYAN THEME •                 ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -135,12 +135,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM CYAN Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • WWW.JRTUNNEL.COM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • WWW.lukavpn.lol •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 05 | 5)
 clear
-echo "green" >/etc/ssnvpn/theme/color.conf
+echo "green" >/etc/lukavpn/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • GREEN THEME •                 ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -150,12 +150,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM GREEN Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • WWW.JRTUNNEL.COM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • WWW.lukavpn.lol •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 06 | 6)
 clear
-echo "magenta" >/etc/ssnvpn/theme/color.conf
+echo "magenta" >/etc/lukavpn/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • MAGENTA THEME •               ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -165,7 +165,7 @@ echo -e " $COLOR1│$NC [INFO] TEAM MAGENTA Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • WWW.JRTUNNEL.COM •         $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • WWW.lukavpn.lol •         $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 00 | 0)

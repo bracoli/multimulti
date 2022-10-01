@@ -1,6 +1,6 @@
 [Unit]
 Description=SSH Over Websocket Python By SSH SEDANG
-Documentation=https://www.jrtunnel.com
+Documentation=https://www.lukavpn.lol
 After=network.target nss-lookup.target
 
 [Service]

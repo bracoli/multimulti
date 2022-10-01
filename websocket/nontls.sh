@@ -89,8 +89,8 @@ sleep 1
 # Installing Service
 cat > /etc/systemd/system/ws-nontls.service << END
 [Unit]
-Description=Python Proxy Mod By SSNVPN
-Documentation=https://t.me/jrtunnelssh
+Description=Python Proxy Mod By lukavpn
+Documentation=https://t.me/lukavpn
 After=network.target nss-lookup.target
 
 [Service]

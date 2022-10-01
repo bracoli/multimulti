@@ -1,14 +1,14 @@
 #!/bin/bash
 MYIP=$(wget -qO- ipinfo.io/ip);
 
-colornow=$(cat /etc/ssnvpn/theme/color.conf)
+colornow=$(cat /etc/lukavpn/theme/color.conf)
 NC="\e[0m"
-COLOR1="$(cat /etc/ssnvpn/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/ssnvpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+COLOR1="$(cat /etc/lukavpn/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/lukavpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
 
-APIGIT=$(cat /etc/ssnvpn/github/api)
-EMAILGIT=$(cat /etc/ssnvpn/github/email)
-USERGIT=$(cat /etc/ssnvpn/github/username)
+APIGIT=$(cat /etc/lukavpn/github/api)
+EMAILGIT=$(cat /etc/lukavpn/github/email)
+USERGIT=$(cat /etc/lukavpn/github/username)
 
 export RED='\033[0;31m';
 export GREEN='\033[0;32m';
@@ -29,7 +29,7 @@ echo -e "$COLOR1│${NC}"
 echo -e "$COLOR1│${NC}  ${ERROR} DNS Cannot Be Empty";
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}              • WWW.JRTUNNEL.COM •            $COLOR1│$NC"
+echo -e "$COLOR1│${NC}              • WWW.lukavpn.lol •            $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -46,7 +46,7 @@ echo -e "$COLOR1│${NC}  ${INFO} DNS Update Successfully";
 fi
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}              • WWW.JRTUNNEL.COM •            $COLOR1│$NC"
+echo -e "$COLOR1│${NC}              • WWW.lukavpn.lol •            $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -78,7 +78,7 @@ echo -e "$COLOR1│${NC}   $INFO Operation Cancelled By User"
 fi
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}              • WWW.JRTUNNEL.COM •            $COLOR1│$NC"
+echo -e "$COLOR1│${NC}              • WWW.lukavpn.lol •            $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -104,7 +104,7 @@ echo -e "$COLOR1│${NC}"
 echo -e "$COLOR1│${NC}  $COLOR1 [00]$NC • GO BACK"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}              • WWW.JRTUNNEL.COM •            $COLOR1│$NC"
+echo -e "$COLOR1│${NC}              • WWW.lukavpn.lol •            $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -p " Select menu :  "  opt

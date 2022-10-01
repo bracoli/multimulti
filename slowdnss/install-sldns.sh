@@ -148,7 +148,7 @@ install client-sldns.service
 cat > /etc/systemd/system/client-sldns.service << END
 [Unit]
 Description=Client SlowDNS By Jrtunnel Mwoi
-Documentation=https://www.jrtunnel.com
+Documentation=https://www.lukavpn.lol
 After=network.target nss-lookup.target
 
 [Service]
@@ -168,7 +168,7 @@ install server-sldns.service
 cat > /etc/systemd/system/server-sldns.service << END
 [Unit]
 Description=Server SlowDNS By Jrtunnel Mwoi
-Documentation=https://www.jrtunnel.com
+Documentation=https://www.lukavpn.lol
 After=network.target nss-lookup.target
 
 [Service]

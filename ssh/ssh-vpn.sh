@@ -80,7 +80,7 @@ locality=Stabat
 organization=Jrtunnel
 organizationalunit=Jrtunnel
 commonname=none
-email=admin@jrtunnel.com
+email=admin@lukavpn.lol
 
 
 echo -e "[ ${green}INFO${NC} ] Installer SSH... "
